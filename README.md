@@ -18,7 +18,7 @@ Proje, **Dapper** altyapısı kullanılarak geliştirilmiş olup **Stored Proced
 | **Validators** | FluentValidation ile model doğrulama kuralları. |
 | **Tests** | xUnit, Moq ve FluentAssertions kullanılarak Unit & Integration testleri içerir. |
 | **Middlewares** | Exception ve global hata yakalama altyapısı. |
-| **Models | API Request & Response modelleri burada bulunur |
+| **Models** | API Request & Response modelleri burada bulunur |
 ---
 
 ## ⚙️ Teknoloji ve Araçlar
@@ -71,6 +71,27 @@ Aşağıda temel tablolar ve işlevleri özetlenmiştir:
 | **EmployeeTypes**       | Çalışan türlerini belirtir. (Sabit maaşlı, Günlük ücretli, Fazla mesai dahil vb.)               |
 | **WorkEntries**         | Çalışanların günlük çalışma kayıtlarını içerir. (Çalışma tarihi, çalışan ID’si)                 |
 | **OvertimeEntries**     | Fazla mesai girişlerini tutar. (Çalışan ID’si, tarih, saat bilgisi)                             |
+
+---
+
+## ⚙️ Stored Procedure Listesi ve Açıklamaları
+| Stored Procedure Adı       | Açıklama                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| **sp_AddWorkEntry**        | Yeni bir çalışma günü kaydı ekler. Aynı çalışanın aynı güne ait kaydı varsa tekrar eklemez. |
+| **sp_DeleteWorkEntry**     | Belirtilen `WorkEntryId` değerine göre çalışma günü kaydını siler.                          |
+| **sp_WorkEntriesHistory**  | Bir çalışanın belirli bir ay içindeki günlük çalışma geçmişini listeler.                    |
+| **sp_WorkEntriesSummary**  | Belirtilen ay ve yıla göre tüm çalışanların toplam çalışma gün sayısını döner.              |
+| **sp_AddOvertimeEntry**    | Fazla mesai kaydı ekler. Aynı çalışanın aynı tarih için kaydı varsa yenisini oluşturmaz.    |
+| **sp_UpdateOvertimeEntry** | Fazla mesai kaydının tarih veya saat bilgisini günceller.                                   |
+| **sp_DeleteOvertimeEntry** | Fazla mesai kaydını siler. Kayıt bulunamazsa hata mesajı döner.                             |
+| **sp_OvertimeHistory**     | Belirtilen çalışanın seçilen ay içerisindeki fazla mesai geçmişini döner.                   |
+| **sp_OvertimeSummary**     | Belirtilen ay ve yıla göre tüm çalışanların toplam fazla mesai saatlerini raporlar.         |
+| **sp_CreateEmployee**      | Yeni bir çalışan oluşturur. T.C. kimlik numarası benzersiz olmalıdır.                       |
+| **sp_UpdateEmployee**      | Mevcut bir çalışanın bilgilerini günceller.                                                 |
+| **sp_GetEmployeesPaged**   | Sayfalama destekli çalışan listesi döner.                                                   |
+| **sp_GetEmployeeDetail**   | Belirtilen `EmployeeId` değerine göre detaylı çalışan bilgilerini döner.                    |
+| **sp_CalculatePayroll**    | Çalışanın maaşını hesaplar. Maaş tipi (sabit, günlük, sabit + mesai) dikkate alınır.        |
+| **sp_GetPayrollReport**    | Belirtilen yıl ve aya göre tüm çalışanların maaş özet raporunu döner.                       |
 
 ---
 
