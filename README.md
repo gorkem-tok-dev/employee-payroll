@@ -1,2 +1,116 @@
-# employee-payroll
-Modern .NET 8 Payroll Management API — built with Dapper, FluentValidation, Swagger, and Docker. Includes Unit &amp; Integration Tests, SQL Scripts, and Live Deployment.
+# 🧾 Employee Payroll API
+
+**Employee Payroll API**, modern bir **.NET 8** tabanlı backend projesidir.  
+Proje, **Dapper** altyapısı kullanılarak geliştirilmiş olup **Stored Procedure**, **FluentValidation**, **Swagger**,  
+**Unit & Integration Testleri**, ve **Docker Compose** desteği ile profesyonel bir yapıya sahiptir.
+
+> Developed by **Görkem Tok** as part of a technical assessment project.  
+> Live API Documentation → [https://employeepayroll.gorkemtok.com/api/docs/index.html](https://employeepayroll.gorkemtok.com/api/docs/index.html)
+
+---
+
+## 🧩 Mimari
+
+| Katman | Açıklama |
+|--------|-----------|
+| **Controllers** | API uç noktalarını barındırır. Swagger açıklamaları ve response tipleri ile dokümante edilmiştir. |
+| **Data** | Dapper Context ve Repository yapıları burada bulunur. |
+| **Validators** | FluentValidation ile model doğrulama kuralları. |
+| **Tests** | xUnit, Moq ve FluentAssertions kullanılarak Unit & Integration testleri içerir. |
+| **Middlewares** | Exception ve global hata yakalama altyapısı. |
+| **Models | API Request & Response modelleri burada bulunur |
+---
+
+## ⚙️ Teknoloji ve Araçlar
+
+| Teknoloji | Kullanım Amacı |
+|------------|----------------|
+| **.NET 8.0** | API geliştirme platformu |
+| **Dapper** | ORM yerine hafif ve performanslı data erişimi |
+| **SQL Server 2022** | Veritabanı yönetimi |
+| **FluentValidation** | Model doğrulama altyapısı |
+| **Swagger / Swashbuckle** | API dokümantasyonu |
+| **xUnit + Moq + FluentAssertions** | Unit ve Integration testleri |
+| **Docker + Docker Compose** | Konteyner tabanlı çalışma ortamı |
+| **Microsoft.Data.SqlClient** | SQL bağlantısı için resmi istemci |
+
+---
+
+## 🧠 Özellikler
+
+✅ Employee CRUD işlemleri  
+✅ Fazla mesai (Overtime) ve çalışma günü (WorkEntries) yönetimi  
+✅ Maaş hesaplama (Stored Procedure tabanlı)  
+✅ FluentValidation ile model kontrolleri  
+✅ Exception middleware ile merkezi hata yönetimi  
+✅ Swagger dokümantasyonu  
+✅ Unit & Integration testleri  
+✅ Docker Compose ile containerize deployment  
+
+---
+
+## 🗃️ Veritabanı
+
+Proje ile birlikte iki dosya yer almaktadır:
+
+| Dosya | Açıklama |
+|--------|-----------|
+| `EmployeePayrollDb_Init.sql` | Veritabanı şeması, tablolar, ilişkiler ve örnek veriler |
+| `EmployeePayrollDb_Diagram.pdf` | Veritabanı ilişkilerini görsel olarak gösterir |
+
+> Script dosyası çalıştırıldığında veritabanı otomatik olarak oluşturulur.
+
+---
+
+## 📊 Veritabanı Şeması ve Tablolar
+Proje, çalışan yönetimi ve maaş hesaplama süreçlerini yönetmek üzere tasarlanmış bir SQL Server veritabanı kullanır.
+Aşağıda temel tablolar ve işlevleri özetlenmiştir:
+| Tablo Adı               | Açıklama                                                                                        |
+| ----------------------- | ----------------------------------------------------------------------------------------------- |
+| **Employees**           | Çalışan bilgilerini tutar. (Ad, Soyad, T.C. No, Maaş tipi, Oluşturulma tarihi vb.)              |
+| **EmployeeTypes**       | Çalışan türlerini belirtir. (Sabit maaşlı, Günlük ücretli, Fazla mesai dahil vb.)               |
+| **WorkEntries**         | Çalışanların günlük çalışma kayıtlarını içerir. (Çalışma tarihi, çalışan ID’si)                 |
+| **OvertimeEntries**     | Fazla mesai girişlerini tutar. (Çalışan ID’si, tarih, saat bilgisi)                             |
+
+---
+
+## 📂 Proje Dosya Yapısı
+```
+EmployeePayroll/
+│
+├── docker-compose.yml
+│
+├── EmployeePayroll.Api/
+│   ├── Connected Services/         # Visual Studio bağlantı servisleri
+│   ├── Dependencies/               # Proje bağımlılıkları
+│   ├── Properties/                 # Derleme ayarları
+│   │
+│   ├── Controllers/                # API endpoint’lerini içeren controller sınıfları
+│   ├── Data/                       # Dapper context, repository’ler ve SQL işlemleri
+│   ├── Middlewares/                # Global hata yakalama (exception handling) ve logging
+│   ├── Models/                     # Request, Response, DTO ve Entity modelleri
+│   ├── Validators/                 # FluentValidation kuralları
+│   │
+│   ├── appsettings.json            # Konfigürasyon dosyası (connection string, swagger vb.)
+│   ├── Dockerfile                  # Docker imajı oluşturmak için yapılandırma dosyası
+│   ├── EmployeePayroll.Api.http    # Endpoint test istekleri (örnek HTTP çağrıları)
+│   └── Program.cs                  # Uygulama başlangıç noktası ve servis kayıtları (DI)
+│
+├── EmployeePayroll.Tests/
+│   ├── Dependencies/               # Test bağımlılıkları
+│   ├── IntegrationTests/           # Gerçek veritabanı üzerinde çalışan entegrasyon testleri
+│   └── UnitTests/                  # Mock verilerle çalışan birim testleri (xUnit, Moq, FluentAssertions)
+│
+└── README.md                       # Proje dokümantasyonu
+```
+---
+
+## 🚀 Run with Docker
+
+Projeyi **Docker Compose** ile birkaç saniyede MSSQL veritabanıyla birlikte çalıştırabilirsiniz. 
+Not: Veritabanını kurduktan sonra `EmployeePayrollDb_Init.sql` script dosyasını çalıştırmanız gerekmektedir.
+
+```bash
+git clone https://github.com/gorkem-tok-dev/employee-payroll.git
+cd EmployeePayroll.Api
+docker compose up --build

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Projects\Personal\EmployeePayroll.Api\EmployeePayroll.Api\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-11-05T21:45:06.4997929Z||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>workstation id=EmployeePayroll.mssql.somee.com%3bpacket size=4096%3buser id=gorkemtokdev_SQLLogin_1%3bpwd=7bun7ofwa3%3bdata source=EmployeePayroll.mssql.somee.com%3bpersist security info=False%3binitial catalog=EmployeePayroll%3bTrustServerCertificate=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

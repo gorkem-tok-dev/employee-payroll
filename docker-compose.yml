@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  # ===========================
+  # EMPLOYEE PAYROLL API
+  # ASP.NET 8.0 tabanlı Web API servisidir.
+  # 7608 portu üzerinden dış dünyaya açılır.
+  # MSSQL containerına bağlanarak veri işlemlerini gerçekleştirir.
+  # ===========================
+  api:
+    container_name: employee-payroll-api  
+    restart: always
+    build: ./EmployeePayroll.Api
+    ports:
+      - "7608:7608"
+    depends_on:
+      - mssql
+    networks:
+      - app-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7608
+      - ConnectionStrings__DefaultConnection=Server=tcp:mssql,1433;Database=EmployeePayroll;User Id=sa;Password=1!2EmployeePayroll!?;TrustServerCertificate=True;Encrypt=False;
+
+  # ===========================
+  # MSSQL VERİTABANI
+  # Microsoft SQL Server 2022 sürümünü çalıştırır.
+  # Host üzerinden 7610 portu ile erişilir.
+  # Veriler 'mssql_data' volume'unda kalıcı tutulur.
+  # ===========================
+  mssql:
+    container_name: mssql
+    image: mcr.microsoft.com/mssql/server:2022-latest 
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=1!2EmployeePayroll!?
+    expose:
+      - "1433"
+    ports:
+      - "7610:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    networks:
+      - app-network
+
+# ===========================
+# ORTAK AĞ TANIMI
+# API ve MSSQL container'larının iletişimini sağlar.
+# ===========================
+networks:
+  app-network:
+    driver: bridge
+
+# ===========================
+# VOLUME TANIMI
+# SQL Server verilerini kalıcı hale getirir.
+# ===========================
+volumes:
+  mssql_data:
