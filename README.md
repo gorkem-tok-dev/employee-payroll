@@ -133,5 +133,5 @@ Not: Veritabanını kurduktan sonra `EmployeePayrollDb_Init.sql` script dosyası
 
 ```bash
 git clone https://github.com/gorkem-tok-dev/employee-payroll.git
-cd EmployeePayroll.Api
+cd employee-payroll
 docker compose up --build
