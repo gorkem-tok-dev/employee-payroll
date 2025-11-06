@@ -18,7 +18,7 @@ Proje, **Dapper** altyapısı kullanılarak geliştirilmiş olup **Stored Proced
 | **Validators** | FluentValidation ile model doğrulama kuralları. |
 | **Tests** | xUnit, Moq ve FluentAssertions kullanılarak Unit & Integration testleri içerir. |
 | **Middlewares** | Exception ve global hata yakalama altyapısı. |
-| **Models | API Request & Response modelleri burada bulunur |
+| **Models** | API Request & Response modelleri burada bulunur |
 ---
 
 ## ⚙️ Teknoloji ve Araçlar
