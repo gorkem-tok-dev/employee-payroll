@@ -88,7 +88,7 @@ Aşağıda temel tablolar ve işlevleri özetlenmiştir:
 | **sp_OvertimeSummary**     | Belirtilen ay ve yıla göre tüm çalışanların toplam fazla mesai saatlerini raporlar.         |
 | **sp_CreateEmployee**      | Yeni bir çalışan oluşturur. T.C. kimlik numarası benzersiz olmalıdır.                       |
 | **sp_UpdateEmployee**      | Mevcut bir çalışanın bilgilerini günceller.                                                 |
-| **sp_GetEmployeesPaged**   | Sayfalama destekli çalışan listesi döner. Arama ve filtreleme parametrelerini destekler.    |
+| **sp_GetEmployeesPaged**   | Sayfalama destekli çalışan listesi döner.                                                   |
 | **sp_GetEmployeeDetail**   | Belirtilen `EmployeeId` değerine göre detaylı çalışan bilgilerini döner.                    |
 | **sp_CalculatePayroll**    | Çalışanın maaşını hesaplar. Maaş tipi (sabit, günlük, sabit + mesai) dikkate alınır.        |
 | **sp_GetPayrollReport**    | Belirtilen yıl ve aya göre tüm çalışanların maaş özet raporunu döner.                       |
