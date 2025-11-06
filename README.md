@@ -74,6 +74,27 @@ Aşağıda temel tablolar ve işlevleri özetlenmiştir:
 
 ---
 
+## ⚙️ Stored Procedure Listesi ve Açıklamaları
+| Stored Procedure Adı       | Açıklama                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| **sp_AddWorkEntry**        | Yeni bir çalışma günü kaydı ekler. Aynı çalışanın aynı güne ait kaydı varsa tekrar eklemez. |
+| **sp_DeleteWorkEntry**     | Belirtilen `WorkEntryId` değerine göre çalışma günü kaydını siler.                          |
+| **sp_WorkEntriesHistory**  | Bir çalışanın belirli bir ay içindeki günlük çalışma geçmişini listeler.                    |
+| **sp_WorkEntriesSummary**  | Belirtilen ay ve yıla göre tüm çalışanların toplam çalışma gün sayısını döner.              |
+| **sp_AddOvertimeEntry**    | Fazla mesai kaydı ekler. Aynı çalışanın aynı tarih için kaydı varsa yenisini oluşturmaz.    |
+| **sp_UpdateOvertimeEntry** | Fazla mesai kaydının tarih veya saat bilgisini günceller.                                   |
+| **sp_DeleteOvertimeEntry** | Fazla mesai kaydını siler. Kayıt bulunamazsa hata mesajı döner.                             |
+| **sp_OvertimeHistory**     | Belirtilen çalışanın seçilen ay içerisindeki fazla mesai geçmişini döner.                   |
+| **sp_OvertimeSummary**     | Belirtilen ay ve yıla göre tüm çalışanların toplam fazla mesai saatlerini raporlar.         |
+| **sp_CreateEmployee**      | Yeni bir çalışan oluşturur. T.C. kimlik numarası benzersiz olmalıdır.                       |
+| **sp_UpdateEmployee**      | Mevcut bir çalışanın bilgilerini günceller.                                                 |
+| **sp_GetEmployeesPaged**   | Sayfalama destekli çalışan listesi döner. Arama ve filtreleme parametrelerini destekler.    |
+| **sp_GetEmployeeDetail**   | Belirtilen `EmployeeId` değerine göre detaylı çalışan bilgilerini döner.                    |
+| **sp_CalculatePayroll**    | Çalışanın maaşını hesaplar. Maaş tipi (sabit, günlük, sabit + mesai) dikkate alınır.        |
+| **sp_GetPayrollReport**    | Belirtilen yıl ve aya göre tüm çalışanların maaş özet raporunu döner.                       |
+
+---
+
 ## 📂 Proje Dosya Yapısı
 ```
 EmployeePayroll/
