@@ -141,6 +141,7 @@ Veritabanı bilgileri(Sadece docker ile çalıştırılırsa):
 <br>
 <br>
 Docker ile çalıştırmak için bash script:
+
 ```bash
 git clone https://github.com/gorkem-tok-dev/employee-payroll.git
 cd employee-payroll
