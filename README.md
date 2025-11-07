@@ -138,8 +138,9 @@ Veritabanı bilgileri(Sadece docker ile çalıştırılırsa):
 | **Server Name**    | localhost,7610          |
 | **Username**       | sa                      |
 | **Password**       | 1!2EmployeePayroll!?    |
-
-
+<br>
+<br>
+Docker ile çalıştırmak için bash script:
 ```bash
 git clone https://github.com/gorkem-tok-dev/employee-payroll.git
 cd employee-payroll
