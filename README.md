@@ -126,10 +126,10 @@ EmployeePayroll/
 ```
 ---
 
-## 🚀 Run with Docker
+## 🚀 Docker ile Çalıştırma
 
 Projeyi **Docker Compose** ile birkaç saniyede MSSQL veritabanıyla birlikte çalıştırabilirsiniz. 
-Not: Veritabanını kurduktan sonra `EmployeePayrollDb_Init.sql` script dosyasını çalıştırmanız gerekmektedir.
+Not: Veritabanını kurduktan sonra `EmployeePayrollDb_Init.sql` script dosyasını çalıştırmanız gerekmektedir. MSSQL veritabanı docker içerisinde 7610 portundan dış dünyaya açılmaktadır. Localinizde localhost,7610 server ismiyle MSSQL veritabanına ulaşabilirsiniz.
 
 ```bash
 git clone https://github.com/gorkem-tok-dev/employee-payroll.git
