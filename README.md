@@ -139,7 +139,6 @@ Veritabanı bilgileri(Sadece docker ile çalıştırılırsa):
 | **Username**       | sa                      |
 | **Password**       | 1!2EmployeePayroll!?    |
 <br>
-<br>
 Docker ile çalıştırmak için bash script:
 
 ```bash
